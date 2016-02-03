@@ -301,6 +301,13 @@ function button_begin_Callback(hObject, eventdata, handles)
 import java.net.Socket
 import java.io.*
 
+try 
+    fclose(handles.contrSerial);
+    delete(handles.contrSerial);
+    clear handles.contrSerial;
+catch
+end
+
 sFreq = str2double(get(handles.edit_datarate,'String'));      % frequency for recording data
 
 %potential solution (approximate) for sampling delay issue. Currently, code within sequence
@@ -703,7 +710,7 @@ try
         disp('Sequence complete, serial connection closing...');
         fclose(handles.contrSerial);
         delete(handles.contrSerial);
-        clear contrSerial;
+        clear handles.contrSerial;
         disp('Serial Connection Closed');
     catch ee
         disp(ee);
@@ -746,7 +753,6 @@ catch error
     %attempts to close down serial connection due to error
     try
         fclose(handles.contrSerial);
-        delete(handles.contrSerial);
         clear handles.contrSerial;
         disp('Serial communcation could not be established');
         if(get(handles.checkbox_image,'Value')==1)
