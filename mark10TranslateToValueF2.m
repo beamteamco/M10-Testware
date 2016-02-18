@@ -129,6 +129,7 @@ try
                     break
                 end
                 if(get(button_stop,'UserData')==1)
+                    fprintf(f_serial,'s');
                     break;
                 end
 
@@ -156,6 +157,7 @@ try
                 break
             end
             if(get(button_stop,'UserData')==1)
+                fprintf(f_serial,'s');
                 break;
             end
             if(image==1)
@@ -178,6 +180,7 @@ try
                     break
                 end
                 if(get(button_stop,'UserData')==1)
+                    fprintf(f_serial,'s');
                     break;
                 end
 
@@ -205,6 +208,7 @@ try
                 break
             end
             if(get(button_stop,'UserData')==1)
+                fprintf(f_serial,'s');
                 break;
             end
             if(image==1)

@@ -120,6 +120,7 @@ try
         while (temp_dispdata >= f_disp) 
             while(nind2==ind2)
                 if(get(button_stop,'UserData')==1)
+                    fprintf(f_serial,'s');
                     return;
                 end
                 nind1 = floor(toc*f_sFreq1)+1;
@@ -158,6 +159,7 @@ try
                     break
             end
             if(get(button_stop,'UserData')==1)
+                fprintf(f_serial,'s');
                 break;
             end
             if(image==1)
@@ -180,6 +182,7 @@ try
                     break
                 end
                 if(get(button_stop,'UserData')==1)
+                    fprintf(f_serial,'s');
                     break;
                 end
 
@@ -207,6 +210,7 @@ try
                 break
             end 
             if(get(button_stop,'UserData')==1)
+                fprintf(f_serial,'s');
                 break;
             end
             if(image==1)
