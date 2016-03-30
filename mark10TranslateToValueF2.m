@@ -54,7 +54,7 @@ if(image==1 && t==1)
 end 
 
 %Sets movement direction
-if(f_force-forceinit<0)
+if(f_force-forceinit>0)
     disp('tt');
     fprintf(f_serial,'s');
     fprintf(f_serial,'d');              %move down
@@ -77,7 +77,7 @@ if(f_force-forceinit<0)
             dirCode = fscanf(f_serial);
         end
     end
-elseif(f_force-forceinit>0)
+elseif(f_force-forceinit<0)
     disp('ss')
     fprintf(f_serial,'s');
     fprintf(f_serial,'u');              %move up
