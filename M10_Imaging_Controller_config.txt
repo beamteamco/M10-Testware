@@ -1,0 +1,8 @@
+cameraL1_type=GigE
+cameraL1_serialNum=21719635
+cameraR1_type=GigE
+cameraR1_serialNum=21494796
+cameraL2_type=USB
+cameraL2_serialNum=21830735
+cameraR2_type=USB
+cameraR2_serialNum=21830739
