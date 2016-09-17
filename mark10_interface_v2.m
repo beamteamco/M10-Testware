@@ -348,7 +348,7 @@ port2 = get(handles.edit_port2,'String');
 % handles.plot_yyR
 
 %begin serial connection
-disp('*****************************');
+disp('********SETTINGS*********');
 disp(['COM',comPort,', Baud=',num2str(baud),' Bits=',num2str(bits)]);
 tez=1;
 handles.contrSerial = serial(['COM',comPort],'BaudRate',baud,'DataBits',bits); % this line sets an object for the controller
@@ -413,6 +413,7 @@ try
 
         %waits for exe to tell m10 testware that it is ready to take
         %pictures
+        disp('Waiting for DIC Aquisition Controller....');
         while (true)
             resp = pnet(imSocket,'read',1);
             if(resp == 'r')
@@ -420,7 +421,7 @@ try
                 break;
             end
         end
-        
+        disp('DIC Aquisition Controller Ready');
     else
         dOS = -1;
         dIS = -1;
@@ -566,7 +567,7 @@ try
     
     numSeq = size(get(handles.table_sequence,'Data'),1);
     disp(['# of sequences=',num2str(numSeq)]);
-    disp(['IsLoop=',num2str(handles.isLoop)]);
+    disp(['Loop =',num2str(handles.isLoop)]);
     
     %stores the current sequences
     dataSeq = get(handles.table_sequence,'Data');
@@ -578,7 +579,7 @@ try
         tLoops=1;
     end
     
-    disp(['tLoops=',num2str(tLoops)]);
+    disp(['# of sequence loops = ',num2str(tLoops)]);
     
     %contains auto scale plot info
     auto=[get(handles.checkbox_autoleft,'Value'),...
@@ -1456,6 +1457,7 @@ function figure1_CloseRequestFcn(hObject, eventdata, handles)
 
 % Hint: delete(hObject) closes the figure
     
+fclose('all');
 delete(hObject);
 
 
